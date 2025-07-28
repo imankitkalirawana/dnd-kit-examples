@@ -1,7 +1,6 @@
 "use client";
 import DndContext from "@/components/dnd-context";
 import {
-  closestCenter,
   DragEndEvent,
   DragOverlay,
   DragStartEvent,
