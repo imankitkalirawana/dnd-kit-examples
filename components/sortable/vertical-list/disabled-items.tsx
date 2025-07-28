@@ -16,9 +16,6 @@ export default function DisabledItems() {
     Array.from({ length: 15 }, (_, i) => `item-${i + 1}`)
   );
 
-  // Items with even numbers are disabled
-  const disabledItems = ["item-2", "item-4", "item-6", "item-8", "item-10"];
-
   function handleDragEnd(event: DragEndEvent) {
     const { active, over } = event;
 
@@ -44,12 +41,8 @@ export default function DisabledItems() {
               items={items}
               strategy={verticalListSortingStrategy}
             >
-              {items.map((id) => (
-                <SortableItem
-                  key={id}
-                  id={id}
-                  disabled={disabledItems.includes(id)}
-                />
+              {items.map((id, index) => (
+                <SortableItem key={id} id={id} disabled={index % 2 === 0} />
               ))}
             </SortableContext>
           </div>
