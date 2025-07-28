@@ -93,7 +93,7 @@ export default function VirtualizedSortableList() {
                     >
                       <SortableItemWithDragHandle
                         key={virtualItem.key}
-                        id={virtualItem.key}
+                        id={virtualItem.key as UniqueIdentifier}
                       />
                     </div>
                   );
@@ -101,7 +101,7 @@ export default function VirtualizedSortableList() {
               </SortableContext>
             </div>
             <DragOverlay>
-              <SortableItemWithDragHandle id={activeId} />
+              {activeId && <SortableItemWithDragHandle id={activeId} />}
             </DragOverlay>
           </div>
         </DndContext>
